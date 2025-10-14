@@ -1,0 +1,13 @@
+e
+fe
+ge
+fe
+
+cidr
+
+cmd
+
+getmac
+arp -a
+
+tudo que tiver a letra v vai ser virtual e f fisico
