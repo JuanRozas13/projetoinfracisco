@@ -1,10 +1,13 @@
 !Entrar no modo Eexc Privilegiado
 enable
-    clock set 20:20:00 10 october 2025
+    clock set 20:20:00 15 october 2025
     configure terminal
-        hostname sw-01
+        hostname rt-01
         service password-encryption
+        login block-for 120 attempts 2 within 60
+        security password min-length 8
         service timestamps log datetime msec
+        service timestamps debug datetime msec
         logging buffered 4096 
         no ip domain-lookup
         banner motd #Juan Rozas LGPD#
@@ -30,24 +33,30 @@ enable
             transport input ssh
             logging synchronous
             exit
-        !configurando o svi
-        ip default-gateway 192.168.1.254
-        int vlan 1
-            description interface de svi
-            ip address 192.168.1.250 255.255.255.0
-            no shutdown
-            exit
         !configuração do ssh
         ip domain-name senac.br 
         crypto key generate rsa general-keys modulus 1024
         ip ssh version 2
         ip ssh time-out 60
         ip ssh authentication-retries 2
+        !Configuração Interface LAN
+        interface gigabitEthernet0/0
+            description Interface de Gateway da LAN
+            ip address 192.168.1.254 255.255.255.0
+            no shutdown
+            end
+    copy running-config startup-config
 
-    copy running-config startup-config  
+
+1. Topologia Física igual
+rede: 172.16.100.0/24
+
+
+nslookup nome-dispositivo
 
 
 show ip interface brief
 
 
 wireshark
+
