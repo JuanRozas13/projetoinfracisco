@@ -1,4 +1,4 @@
-!Entrar no modo Eexc Privilegiado
+    !Entrar no modo Eexc Privilegiado
 enable
     clock set 20:20:00 10 october 2025
     configure terminal
@@ -43,11 +43,10 @@ enable
         ip ssh version 2
         ip ssh time-out 60
         ip ssh authentication-retries 2
-
     copy running-config startup-config  
 
 
-show ip interface brief
+!show ip interface brief
 
 
-wireshark
+!wireshark

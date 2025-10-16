@@ -47,16 +47,11 @@ enable
             end
     copy running-config startup-config
 
-
-1. Topologia Física igual
-rede: 172.16.100.0/24
+!nslookup nome-dispositivo
 
 
-nslookup nome-dispositivo
+!show ip interface brief
 
 
-show ip interface brief
-
-
-wireshark
+!wireshark
 

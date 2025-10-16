@@ -1,6 +1,6 @@
 !Entrar no modo Eexc Privilegiado
 enable
-    clock set 20:20:00 15 october 2025
+    clock set 20:20:00 17 october 2025
     configure terminal
         hostname rt-01
         service password-encryption
@@ -42,23 +42,23 @@ enable
         !Configuração Interface LAN
         interface gigabitEthernet0/0
             description Interface de Gateway da LAN
-            ip address 192.168.1.254 255.255.255.0
+            ip address 172.16.100.254 255.255.255.0
             no shutdown
             end
     copy running-config startup-config
 
 
-2. Topologia Física igual
-rede: 172.16.100.0/24
-configurações  dinamica nos pcs a cabo
-swith 250-251 roteador 254
-nomes diferentes
+! 2. Topologia Física igual
+! rede: 172.16.100.0/24
+! configurações  dinamica nos pcs a cabo
+! swith 250-251 roteador 254
+! nomes diferentes
 
-nslookup nome-dispositivo
-
-
-show ip interface brief
+!nslookup nome-dispositivo
 
 
-wireshark
+!show ip interface brief
+
+
+!wireshark
 
