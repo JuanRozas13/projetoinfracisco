@@ -62,3 +62,15 @@ enable
 
 !wireshark
 
+
+confi s0/1/1
+conf t
+    int s0/1/1
+        ip address 10.0.0.2 255.0.0.0
+        description porta wan que liga topologia02/topologia01
+        no shutdown
+        end
+    route rip
+        network 10.0.0.0
+        network 172.16.100.0
+        
