@@ -1,6 +1,6 @@
 !Entrar no modo Eexc Privilegiado
 enable
-    clock set 20:20:00 17 october 2025
+    clock set 16:16:00 17 october 2025
     configure terminal
         hostname sw-01
         service password-encryption
@@ -43,6 +43,7 @@ enable
         ip ssh version 2
         ip ssh time-out 60
         ip ssh authentication-retries 2
+        end
 
     copy running-config startup-config  
 
