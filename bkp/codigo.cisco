@@ -1,0 +1,72 @@
+!fazer backup
+
+TOPOLOGIA 1
+
+copy running-config startup-config
+
+dir nvram
+
+dir flahs:
+
+copy running-config flash:
+
+Destination filename [running-config]? bkp-20-10-2025
+
+sw-01#dir flash:
+Directory of flash:/
+
+    1  -rw-     4670455          <no date>  2960-lanbasek9-mz.150-2.SE4.bin
+    4  -rw-        1718          <no date>  bkp-20-10-2025
+    3  -rw-        1718          <no date>  config.text
+
+64016384 bytes total (59342493 bytes free)
+
+
+servidor --> services --> TFTP --> limpar arquivos --> fechar server
+
+entrar no pc --> ssh -l admin 192.168.1.250 --> enable --> copy running-config TFTP -->
+sw-01#cop r tftp
+Address or name of remote host []? 192.168.1.1
+Destination filename [sw-01-confg]? 
+
+Writing running-config....!!
+[OK - 1718 bytes]
+
+1718 bytes copied in 3 secs (572 bytes/sec)
+
+
+
+
+
+
+
+
+
+
+
+TOPOLOGIA 2
+
+pc --> ssh -l admin 172.16.100.251 --> 
+
+sw-02#copy running-config startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+
+sw-02# copy running-config flash:
+Destination filename [running-config]?  bkp-20-10-2025
+Building configuration...
+[OK]
+sw-02#copy running-config tftp
+Address or name of remote host []? 192.168.1.1
+Destination filename [sw-02-confg]? 
+
+Writing running-config...!!
+[OK - 1718 bytes]
+
+1718 bytes copied in 0 secs
+
+
+
+
+
